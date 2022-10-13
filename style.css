@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --primary-color: #4d4351;
+  --secondary-color: #a878c1;
+  --offset: #904226;
+  --text: #434656;
+}
+
+::selection {
+  color: #fff5ff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: url(images/pink-background.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+input {
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  outline: none;
+  margin: 0.5rem;
+  border: solid 1px var(--secondary-color);
+}
+
+input:focus {
+  color: var(--text);
+  box-shadow: 0 0 5px 1px var(--offset);
+}
+
+.list-container {
+  display: inline-block;
+  text-align: center;
+  max-width: 550px;
+}
+
+.addBtn {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+}
+
+.addBtn:hover,
+.addBtn:focus {
+  transform: scale(1);
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  margin: 1.5rem 0;
+}
+
+.list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.list-item {
+  cursor: pointer;
+}
+
+.list-item li {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+.list-item i {
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.done {
+  text-decoration: line-through var(--offset);
+}
+
+@media screen and (min-width: 1670px) {
+  body {
+    background-position: top;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list-container {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .addBtn {
+    font-size: 1.5rem;
+  }
+
+  .list-item li {
+    font-size: 2.5rem;
+  }
+
+  .list-item i {
+    font-size: 1.7rem;
+  }
+}
