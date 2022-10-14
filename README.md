@@ -14,7 +14,7 @@ Tired of the difficulties that arise while using the more comprehensive list mak
 
 ## Demo
 
-To be added
+https://simpleshoppinglist.netlify.app/
 
 
 ## Screenshots
