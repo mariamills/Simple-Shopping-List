@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 :root {
-  --primary-color: #4d4351;
-  --secondary-color: #a878c1;
-  --offset: #904226;
-  --text: #434656;
+  --primary-color: #87ceeb;
+  --accent: #ffc0cb;
+  --highlight: #dda0dd;
+  --text: #5a5a5a;
+  --white: #ffffff;
+  --success: #90ee90;
 }
 
 ::selection {
-  color: #fff5ff;
+  background-color: var(--primary-color);
 }
 
 html {
@@ -16,38 +18,64 @@ html {
 }
 
 body {
-  background: url(images/pink-background.jpg);
-  background-repeat: no-repeat;
-  background-position: right;
   font-family: "Poppins", sans-serif;
   margin: 0;
   text-align: center;
+  background-image: linear-gradient(to right, var(--primary-color), #d3d3d3);
 }
 
 input {
   color: var(--text);
-  padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 5px;
   outline: none;
   margin: 0.5rem;
-  border: solid 1px var(--secondary-color);
+  border: none;
 }
 
 input:focus {
   color: var(--text);
-  box-shadow: 0 0 5px 1px var(--offset);
+}
+
+li {
+  color: var(--primary-color);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: solid 1px var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+i {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-left: 0.8rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 2rem;
 }
 
 .list-container {
   display: inline-block;
-  text-align: center;
   max-width: 550px;
+}
+
+.input-container {
+  background-color: var(--white);
+  max-width: 300px;
+  padding: 1rem 0rem;
+  margin: 1.5rem auto;
 }
 
 .addBtn {
   border: none;
-  border-radius: 15px;
-  background-color: var(--secondary-color);
+  border-radius: 5px;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 0.7rem 1.5rem;
   cursor: pointer;
@@ -59,7 +87,7 @@ input:focus {
 }
 
 .title {
-  color: var(--primary-color);
+  color: var(--white);
   font-size: 3.5rem;
   letter-spacing: 4px;
   margin: 1.5rem 0;
@@ -67,55 +95,32 @@ input:focus {
 
 .list {
   list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
+  background-color: var(--white);
+  max-width: 300px;
+  padding: 1rem 0rem;
+  margin: auto;
 }
 
-.list-item {
+.settings {
+  font-size: 2rem;
+  color: var(--text);
   cursor: pointer;
 }
 
-.list-item li {
-  color: var(--secondary-color);
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-}
-
-.list-item i {
-  color: var(--text);
-  font-size: 1.5rem;
-}
-
 .done {
-  text-decoration: line-through var(--offset);
+  text-decoration: line-through var(--text);
 }
 
-@media screen and (min-width: 1670px) {
-  body {
-    background-position: top;
-    background-size: cover;
-  }
+.error {
+  border-color: red;
 }
 
 @media screen and (min-width: 768px) {
-  .list-container {
-    text-align: center;
-  }
-
   .title {
     font-size: 4rem;
   }
 
   .addBtn {
     font-size: 1.5rem;
-  }
-
-  .list-item li {
-    font-size: 2.5rem;
-  }
-
-  .list-item i {
-    font-size: 1.7rem;
   }
 }
