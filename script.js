@@ -42,7 +42,7 @@ function addToList() {
 
 //Had to make use of event delegation since elements are created dynamically
 //Item cross-off functionality
-body.addEventListener("click", function (e) {
+ul.addEventListener("click", function (e) {
   if (e.target.tagName.toLowerCase() === "li") {
     e.target.classList.toggle("done");
     console.log("Completed!");
@@ -50,7 +50,7 @@ body.addEventListener("click", function (e) {
 });
 
 //Delete functionality
-body.addEventListener("click", function (e) {
+ul.addEventListener("click", function (e) {
   if (e.target.tagName.toLowerCase() === "i") {
     e.target.parentElement.remove();
     console.log("Removed");
