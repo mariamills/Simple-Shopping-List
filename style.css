@@ -79,11 +79,12 @@ nav {
   color: #fff;
   padding: 0.7rem 1.5rem;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .addBtn:hover,
 .addBtn:focus {
-  transform: scale(1);
+  transform: scale(0.96);
 }
 
 .title {
@@ -105,6 +106,12 @@ nav {
   font-size: 2rem;
   color: var(--text);
   cursor: pointer;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.settings:hover {
+  transform: scale(1.2);
 }
 
 .done {
@@ -113,6 +120,87 @@ nav {
 
 .error {
   border-color: red;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* right: -400px; */
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--white);
+  transition: 0.2s ease-in-out;
+}
+
+.sidebar.toggle {
+  right: 0;
+}
+
+.clear {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fcf7f7;
+  background-color: var(--primary-color);
+  border: none;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.1s linear;
+}
+
+.clear:hover {
+  transform: scale(0.96);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+input[type="checkbox"].toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+input[type="checkbox"] + label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+input[type="checkbox"].toggle:checked + label {
+  color: var(--primary-color);
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  width: 4rem;
+  height: 2rem;
+  background-color: #ddd;
+  border-radius: 1rem;
+  margin: 0.5rem 1.5rem;
+}
+
+input[type="checkbox"].toggle:checked + label::before {
+  background-color: #f3f3f3;
+}
+
+input[type="checkbox"] + label::after {
+  position: absolute;
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--text);
+  border-radius: 1rem;
+  left: 0;
+  transition: 0.2s linear;
+  margin-left: 1rem;
+}
+
+input[type="checkbox"].toggle:checked + label::after {
+  transform: translateX(3.5rem);
+  background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 768px) {

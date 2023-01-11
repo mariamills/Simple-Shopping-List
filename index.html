@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Shopping List - SSL</title>
+    <title>QuickList - For all your quick list needs!</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -13,10 +13,45 @@
   </head>
   <body>
     <nav>
-      <i class="fa-solid fa-gear settings"></i>
+      <i class="fa-solid fa-gear settings" id="settings"></i>
+      <div class="sidebar">
+        <h2>SETTINGS</h2>
+
+        <div>
+          <input type="color" name="" id="" />
+          <input type="checkbox" id="toggleGradient" class="toggle" checked />
+          <label for="toggleGradient">Gradient Background</label>
+
+          <input type="checkbox" id="toggleLines" class="toggle" checked />
+          <label for="toggleLines">Lines</label>
+
+          <input type="checkbox" id="toggleBtn" class="toggle" checked />
+          <label for="toggleBtn">Show Button</label>
+
+          <input type="checkbox" id="toggle" class="toggle" checked />
+          <label for="toggle">Enable Quatity</label>
+        </div>
+
+        <div>
+          <h3>Choose Gradient Orienation</h3>
+          <i class="fa-solid fa-arrow-right"></i>
+          <i class="fa-solid fa-arrow-up"></i>
+          <i class="fa-solid fa-arrow-down"></i>
+          <i class="fa-solid fa-arrow-left"></i>
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </div>
+
+        <div>
+          <h3>Change background image</h3>
+          <input type="file" />
+          <button>Upload</button>
+        </div>
+
+        <button class="clear" id="clear">Clear List</button>
+      </div>
     </nav>
     <div class="list-container">
-      <h1 class="title">Simple Shopping List</h1>
+      <h1 class="title" id="title">QuickList</h1>
       <div class="input-container">
         <input type="text" placeholder="new item" />
         <button class="addBtn">ADD</button>
