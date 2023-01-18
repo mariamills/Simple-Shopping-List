@@ -39,5 +39,7 @@ https://simpleshoppinglist.netlify.app/
 
 
 ## Screenshots
+![Image1](https://user-images.githubusercontent.com/25801484/213215512-65d353f6-1e78-4fc4-b88c-31da5899c58c.png)
+![Image2](https://user-images.githubusercontent.com/25801484/213215525-fde887a9-2fe7-4905-b2c1-c1ed3558c7ee.png)
 
-![SSL](https://user-images.githubusercontent.com/25801484/195682615-ebacea79-22c2-4ba5-bd5f-2f1b0493810e.PNG)
+
