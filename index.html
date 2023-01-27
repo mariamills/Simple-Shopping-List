@@ -16,9 +16,8 @@
       <i class="fa-solid fa-gear settings" id="settings"></i>
       <div class="sidebar">
         <h2>SETTINGS</h2>
-
         <div>
-          <input type="color" name="" id="" />
+          <input type="color" name="color" id="color" />
           <input type="checkbox" id="toggleGradient" class="toggle" />
           <label for="toggleGradient">Gradient Background</label>
 
@@ -31,11 +30,11 @@
 
         <div>
           <h3>Choose Gradient Orienation</h3>
-          <i class="fa-solid fa-arrow-right" id="orienation"></i>
-          <i class="fa-solid fa-arrow-up" id="orienation"></i>
-          <i class="fa-solid fa-arrow-down" id="orienation"></i>
-          <i class="fa-solid fa-arrow-left" id="orienation"></i>
-          <i class="fa-solid fa-arrows-rotate" id="orienation"></i>
+          <i class="fa-solid fa-arrow-right orienation"></i>
+          <i class="fa-solid fa-arrow-up orienation"></i>
+          <i class="fa-solid fa-arrow-down orienation"></i>
+          <i class="fa-solid fa-arrow-left orienation"></i>
+          <i class="fa-solid fa-arrows-rotate orienation"></i>
         </div>
 
         <div>
@@ -51,8 +50,13 @@
           </div>
           <button class="settingBtn" id="upload">Upload</button>
         </div>
-
-        <button class="settingBtn" id="clear">Clear List</button>
+        <div>
+          <button class="settingBtn" id="remove">Remove image</button>
+        </div>
+        <div>
+          <button class="settingBtn" id="clear">Clear List</button>
+        </div>
+        <button class="settingBtn" id="reset">Default Settings</button>
       </div>
     </nav>
     <div class="list-container">

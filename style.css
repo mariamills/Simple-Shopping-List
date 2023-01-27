@@ -15,6 +15,7 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
@@ -224,6 +225,10 @@ input[type="checkbox"] + label::after {
 input[type="checkbox"].toggle:checked + label::after {
   transform: translateX(3.5rem);
   background-color: var(--primary-color);
+}
+
+.orienation {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

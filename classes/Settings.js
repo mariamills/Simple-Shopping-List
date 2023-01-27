@@ -10,11 +10,14 @@ class Settings {
     this.toggleBtn = document.getElementById("toggleBtn");
     this.toggleSettings = document.getElementById("settings");
     this.clear = document.getElementById("clear");
+    this.reset = document.getElementById("reset");
+    this.remove = document.getElementById("remove");
     this.fileInput = document.getElementById("file");
     this.fileName = document.getElementById("file-name");
     this.upload = document.getElementById("upload");
     this.sidebar = document.querySelector(".sidebar");
     this.addBtn = document.querySelector(".addBtn");
+    this.orienationDirections = document.querySelectorAll(".orienation");
     this.body = document.querySelector("body");
 
     this.color = LocalStorage.get("color") || "#87ceeb";
@@ -29,6 +32,8 @@ class Settings {
     this.showSettings = LocalStorage.get("settings");
     this.uploadedFile = undefined;
     this.uploadedImage = LocalStorage.get("uploadedImage");
+    this.orienation = LocalStorage.get("orienation");
+    this.direction = LocalStorage.get("direction") || "to right";
   }
 
   init() {
@@ -55,6 +60,9 @@ class Settings {
       "click",
       this.handleSettingsChange.bind(this)
     );
+    this.orienationDirections.forEach((item) =>
+      item.addEventListener("click", this.handleOrienationChange.bind(this))
+    );
 
     this.applyColor();
     this.applyGradient();
@@ -69,6 +77,8 @@ class Settings {
     }
 
     this.clear.addEventListener("click", this.handleClear.bind(this));
+    this.reset.addEventListener("click", this.handleReset.bind(this));
+    this.remove.addEventListener("click", this.handleRemove.bind(this));
     this.fileInput.addEventListener("change", this.handleFile.bind(this));
     this.upload.addEventListener("click", this.handleUpload.bind(this));
     this.toggleBtn.addEventListener(
@@ -102,6 +112,18 @@ class Settings {
   handleClear() {
     todo.setItems = [];
     LocalStorage.clearList();
+    location.reload();
+  }
+
+  handleReset() {
+    todo.setItems = [];
+    LocalStorage.clear();
+    location.reload();
+  }
+
+  handleRemove() {
+    localStorage.removeItem("uploadedImage");
+    localStorage.removeItem("uploadedFile");
     location.reload();
   }
 
@@ -150,15 +172,51 @@ class Settings {
     this.sidebar.classList.toggle("toggle");
   }
 
+  handleOrienationChange(e) {
+    this.orienation = true;
+    LocalStorage.set("orienation", this.orienation);
+    this.applyOrienation(e);
+  }
+
+  applyOrienation(e) {
+    const target = e.target.classList;
+    if (target.contains("fa-arrow-up")) {
+      this.direction = "to top";
+      LocalStorage.set("direction", "to top");
+    }
+    if (target.contains("fa-arrow-down")) {
+      this.direction = "to bottom";
+      LocalStorage.set("direction", "to bottom");
+    }
+    if (target.contains("fa-arrow-left")) {
+      this.direction = "to left";
+      LocalStorage.set("direction", "to left");
+    }
+    if (target.contains("fa-arrow-right")) {
+      this.direction = "to right";
+      LocalStorage.set("direction", "to right");
+    }
+    if (target.contains("fa-arrows-rotate")) {
+      this.direction = "to right";
+      LocalStorage.set("direction", "to right");
+    }
+    this.applyGradient();
+  }
+
   applyColor() {
     this.body.style.setProperty("--primary-color", this.color);
   }
 
   applyGradient() {
     if (!this.uploadedImage) {
-      let style = this.toggleGradient.checked
-        ? "linear-gradient(to right, var(--primary-color), #d3d3d3)"
-        : "var(--primary-color)";
+      let style;
+      if (this.orienation) {
+        style = `linear-gradient(${this.direction}, var(--primary-color), #d3d3d3)`;
+      } else {
+        style = this.toggleGradient.checked
+          ? "linear-gradient(to right, var(--primary-color), #d3d3d3)"
+          : "var(--primary-color)";
+      }
       this.body.style.background = style;
     }
   }
