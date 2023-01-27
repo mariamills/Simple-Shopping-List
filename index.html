@@ -19,45 +19,50 @@
 
         <div>
           <input type="color" name="" id="" />
-          <input type="checkbox" id="toggleGradient" class="toggle" checked />
+          <input type="checkbox" id="toggleGradient" class="toggle" />
           <label for="toggleGradient">Gradient Background</label>
 
-          <input type="checkbox" id="toggleLines" class="toggle" checked />
+          <input type="checkbox" id="toggleLines" class="toggle" />
           <label for="toggleLines">Lines</label>
 
-          <input type="checkbox" id="toggleBtn" class="toggle" checked />
+          <input type="checkbox" id="toggleBtn" class="toggle" />
           <label for="toggleBtn">Show Button</label>
-
-          <!-- <input type="checkbox" id="toggle" class="toggle" checked />
-          <label for="toggle">Enable Quatity</label> -->
         </div>
 
-        <!-- <div>
+        <div>
           <h3>Choose Gradient Orienation</h3>
-          <i class="fa-solid fa-arrow-right"></i>
-          <i class="fa-solid fa-arrow-up"></i>
-          <i class="fa-solid fa-arrow-down"></i>
-          <i class="fa-solid fa-arrow-left"></i>
-          <i class="fa-solid fa-arrows-rotate"></i>
-        </div> -->
+          <i class="fa-solid fa-arrow-right" id="orienation"></i>
+          <i class="fa-solid fa-arrow-up" id="orienation"></i>
+          <i class="fa-solid fa-arrow-down" id="orienation"></i>
+          <i class="fa-solid fa-arrow-left" id="orienation"></i>
+          <i class="fa-solid fa-arrows-rotate" id="orienation"></i>
+        </div>
 
-        <!-- <div>
+        <div>
           <h3>Change background image</h3>
-          <input type="file" />
-          <button>Upload</button>
-        </div> -->
+          <div class="file-upload">
+            <label for="file" class="custom-file-upload">
+              <i class="fa-solid fa-upload"></i>
+              Choose file
+              <input type="file" id="file" />
+            </label>
+            <span> Chosen file: </span>
+            <span id="file-name"> None </span>
+          </div>
+          <button class="settingBtn" id="upload">Upload</button>
+        </div>
 
-        <button class="clear" id="clear">Clear List</button>
+        <button class="settingBtn" id="clear">Clear List</button>
       </div>
     </nav>
     <div class="list-container">
       <h1 class="title" id="title">QuickList</h1>
       <div class="input-container">
-        <input type="text" placeholder="new item" />
-        <button class="addBtn">ADD</button>
+        <input type="text" name="new-item" placeholder="new item" />
+        <button class="addBtn" hidden>ADD</button>
       </div>
       <ul class="list"></ul>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

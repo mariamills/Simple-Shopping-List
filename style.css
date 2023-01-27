@@ -21,7 +21,7 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   text-align: center;
-  background-image: linear-gradient(to right, var(--primary-color), #d3d3d3);
+  background: linear-gradient(to right, var(--primary-color), #d3d3d3);
 }
 
 input {
@@ -60,6 +60,11 @@ nav {
   padding: 2rem;
 }
 
+button:hover,
+button:focus {
+  transform: scale(0.96);
+}
+
 .list-container {
   display: inline-block;
   max-width: 550px;
@@ -80,11 +85,6 @@ nav {
   padding: 0.7rem 1.5rem;
   cursor: pointer;
   margin-right: 1rem;
-}
-
-.addBtn:hover,
-.addBtn:focus {
-  transform: scale(0.96);
 }
 
 .title {
@@ -126,7 +126,6 @@ nav {
   position: fixed;
   top: 0;
   right: -400px;
-  /* right: 0; */
   width: 300px;
   height: 100%;
   background-color: var(--white);
@@ -137,7 +136,7 @@ nav {
   right: 0;
 }
 
-.clear {
+.settingBtn {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   color: #fcf7f7;
@@ -148,12 +147,36 @@ nav {
   transition: transform 0.1s linear;
 }
 
-.clear:hover {
-  transform: scale(0.96);
+.file-upload span {
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: bolder;
 }
 
-.hidden {
-  visibility: hidden;
+input[type="file"] {
+  display: none;
+}
+
+.fa-upload {
+  color: #fcf7f7;
+  margin-right: 0.2rem;
+}
+
+.custom-file-upload {
+  color: #fcf7f7;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  transition: transform 0.1s linear;
+  margin-right: 0.5rem;
+}
+
+.custom-file-upload:hover,
+.custom-file-upload:focus {
+  transform: scale(0.96);
 }
 
 input[type="checkbox"].toggle {
