@@ -2,7 +2,7 @@ import Validation from "./Validation.js";
 import LocalStorage from "./LocalStorage.js";
 
 class ToDoList {
-  static maxLength = 50;
+  static maxLength = 25;
   constructor(settings) {
     this.items = localStorage.getItem("items")
       ? JSON.parse(localStorage.getItem("items"))
