@@ -5,25 +5,7 @@ const todo = new ToDoList();
 
 class Settings {
   constructor() {
-    this.colorInput = document.querySelector("input[type='color']");
-    this.toggleGradient = document.getElementById("toggleGradient");
-    this.toggleLines = document.getElementById("toggleLines");
-    this.toggleBtn = document.getElementById("toggleBtn");
-    this.toggleSettings = document.getElementById("settings");
-    this.clear = document.getElementById("clear");
-    this.reset = document.getElementById("reset");
-    this.remove = document.getElementById("remove");
-    this.fileInput = document.getElementById("file");
-    this.fileName = document.getElementById("file-name");
-    this.upload = document.getElementById("upload");
-    this.sidebar = document.querySelector(".sidebar");
-    this.addBtn = document.querySelector(".addBtn");
-    this.orienationDirections = document.querySelectorAll(".orienation");
-    this.edit = document.getElementById("edit-title");
-    this.editTitle = document.querySelector(".fa-pen-to-square");
-    this.titleElement = document.getElementById("title");
-    this.body = document.querySelector("body");
-
+    this.initializeElements();
     this.color = LocalStorage.get("color") || "#87ceeb";
     this.gradient =
       LocalStorage.get("gradient") === null
@@ -95,6 +77,27 @@ class Settings {
       "click",
       this.handleToggleChange.bind(this)
     );
+  }
+
+  initializeElements() {
+    this.colorInput = document.querySelector("input[type='color']");
+    this.toggleGradient = document.getElementById("toggleGradient");
+    this.toggleLines = document.getElementById("toggleLines");
+    this.toggleBtn = document.getElementById("toggleBtn");
+    this.toggleSettings = document.getElementById("settings");
+    this.clear = document.getElementById("clear");
+    this.reset = document.getElementById("reset");
+    this.remove = document.getElementById("remove");
+    this.fileInput = document.getElementById("file");
+    this.fileName = document.getElementById("file-name");
+    this.titleElement = document.getElementById("title");
+    this.edit = document.getElementById("edit-title");
+    this.upload = document.getElementById("upload");
+    this.sidebar = document.querySelector(".sidebar");
+    this.addBtn = document.querySelector(".addBtn");
+    this.editTitle = document.querySelector(".fa-pen-to-square");
+    this.body = document.querySelector("body");
+    this.orienationDirections = document.querySelectorAll(".orienation");
   }
 
   get lines() {
