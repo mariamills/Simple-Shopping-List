@@ -9,12 +9,12 @@ class ToDoList {
       : [];
     this.maxLength = ToDoList.maxLength;
     this.ul = document.querySelector("ul");
-    this.ul.addEventListener("click", this.handleEdit.bind(this));
-    this.ul.addEventListener("click", this.handleToggleDone.bind(this));
     this.settings = settings;
   }
 
   init() {
+    this.ul.addEventListener("click", this.handleEdit.bind(this));
+    this.ul.addEventListener("click", this.handleToggleDone.bind(this));
     this.render();
   }
 
@@ -50,23 +50,30 @@ class ToDoList {
     if (e.target.classList.contains("fa-pencil")) {
       let parent = e.target.parentNode.parentNode; // Get the parent li element
       let newInput = document.createElement("input");
+      let index = this.items.indexOf(parent.textContent);
+      console.log("INDEX: ", index);
+      newInput.value = parent.textContent;
 
       parent.classList.remove("done");
 
       // Replace the li element with the input element
       parent.replaceChild(newInput, parent.firstChild);
 
-      newInput.addEventListener("keyup", this.handleEditConfirm.bind(this));
+      newInput.addEventListener("keyup", (e) =>
+        this.handleEditConfirm(e, index)
+      );
       newInput.focus();
     }
   }
 
-  handleEditConfirm(e) {
-    if (e.key === "Enter") {
+  handleEditConfirm(e, index) {
+    if (e.key === "Enter" && e.target.tagName === "INPUT") {
       let newText = document.createTextNode(e.target.value);
       if (Validation.isValidLength(newText)) {
         let parent = e.target.parentNode;
+        this.items[index] = newText.textContent;
         parent.replaceChild(newText, e.target);
+        LocalStorage.set("items", this.items);
       } else {
         e.target.classList.add("error");
         alert(

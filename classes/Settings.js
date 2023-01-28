@@ -1,5 +1,6 @@
 import LocalStorage from "./LocalStorage.js";
 import ToDoList from "./ToDoList.js";
+import Validation from "./Validation.js";
 const todo = new ToDoList();
 
 class Settings {
@@ -18,6 +19,9 @@ class Settings {
     this.sidebar = document.querySelector(".sidebar");
     this.addBtn = document.querySelector(".addBtn");
     this.orienationDirections = document.querySelectorAll(".orienation");
+    this.edit = document.getElementById("edit-title");
+    this.editTitle = document.querySelector(".fa-pen-to-square");
+    this.titleElement = document.getElementById("title");
     this.body = document.querySelector("body");
 
     this.color = LocalStorage.get("color") || "#87ceeb";
@@ -34,6 +38,7 @@ class Settings {
     this.uploadedImage = LocalStorage.get("uploadedImage");
     this.orienation = LocalStorage.get("orienation");
     this.direction = LocalStorage.get("direction") || "to right";
+    this.title = LocalStorage.get("title") || "QuickList";
   }
 
   init() {
@@ -63,10 +68,15 @@ class Settings {
     this.orienationDirections.forEach((item) =>
       item.addEventListener("click", this.handleOrienationChange.bind(this))
     );
+    this.editTitle.addEventListener("click", this.handleTitleChange.bind(this));
 
     this.applyColor();
     this.applyGradient();
     this.applyLines();
+
+    if (this.title) {
+      this.titleElement.innerText = this.title;
+    }
 
     if (this.showSettings) {
       this.sidebar.classList.add("toggle");
@@ -178,6 +188,31 @@ class Settings {
     this.applyOrienation(e);
   }
 
+  handleTitleChange() {
+    const newInput = document.createElement("input");
+    const parent = this.edit.parentNode;
+    parent.replaceChild(newInput, this.edit);
+    newInput.addEventListener("keyup", (e) => this.handleTitleConfirm(e));
+    newInput.focus();
+  }
+
+  handleTitleConfirm(e) {
+    if (e.key === "Enter" && e.target.tagName === "INPUT") {
+      let newTitle = e.target.value;
+      const parent = e.target.parentNode;
+      if (Validation.isValidLength(newTitle)) {
+        this.titleElement.innerText = newTitle;
+        parent.replaceChild(this.edit, e.target);
+        LocalStorage.set("title", newTitle);
+      } else {
+        e.target.classList.add("error");
+        alert(
+          "Please make sure your item is greater than 0 characters & less than 25 characters."
+        );
+      }
+    }
+  }
+
   applyOrienation(e) {
     const target = e.target.classList;
     if (target.contains("fa-arrow-up")) {
@@ -193,10 +228,6 @@ class Settings {
       LocalStorage.set("direction", "to left");
     }
     if (target.contains("fa-arrow-right")) {
-      this.direction = "to right";
-      LocalStorage.set("direction", "to right");
-    }
-    if (target.contains("fa-arrows-rotate")) {
       this.direction = "to right";
       LocalStorage.set("direction", "to right");
     }

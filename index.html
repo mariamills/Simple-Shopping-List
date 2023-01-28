@@ -29,12 +29,17 @@
         </div>
 
         <div>
+          <h3 id="edit-title">
+            <i class="fa-solid fa-pen-to-square"></i>Edit title
+          </h3>
+        </div>
+
+        <div>
           <h3>Choose Gradient Orienation</h3>
           <i class="fa-solid fa-arrow-right orienation"></i>
           <i class="fa-solid fa-arrow-up orienation"></i>
           <i class="fa-solid fa-arrow-down orienation"></i>
           <i class="fa-solid fa-arrow-left orienation"></i>
-          <i class="fa-solid fa-arrows-rotate orienation"></i>
         </div>
 
         <div>
@@ -48,19 +53,19 @@
             <span> Chosen file: </span>
             <span id="file-name"> None </span>
           </div>
-          <button class="settingBtn" id="upload">Upload</button>
+          <button class="settings-btn" id="upload">Upload</button>
         </div>
         <div>
-          <button class="settingBtn" id="remove">Remove image</button>
+          <button class="settings-btn" id="remove">Clear image</button>
         </div>
         <div>
-          <button class="settingBtn" id="clear">Clear List</button>
+          <button class="settings-btn" id="clear">Clear List</button>
+          <button class="settings-btn" id="reset">Default Settings</button>
         </div>
-        <button class="settingBtn" id="reset">Default Settings</button>
       </div>
     </nav>
     <div class="list-container">
-      <h1 class="title" id="title">QuickList</h1>
+      <h1 class="title" id="title"></h1>
       <div class="input-container">
         <input type="text" name="new-item" placeholder="new item" />
         <button class="addBtn" hidden>ADD</button>

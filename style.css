@@ -115,6 +115,11 @@ button:focus {
   transform: scale(1.2);
 }
 
+.fa-pen-to-square {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 .done {
   text-decoration: line-through var(--text);
 }
@@ -137,13 +142,13 @@ button:focus {
   right: 0;
 }
 
-.settingBtn {
+.settings-btn {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   color: #fcf7f7;
   background-color: var(--primary-color);
   border: none;
-  margin-top: 1.5rem;
+  margin: 1.5rem 1.2rem 0 0;
   cursor: pointer;
   transition: transform 0.1s linear;
 }
